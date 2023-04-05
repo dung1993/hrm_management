@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="keywords"
+      content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template"
+    />
+    <meta
+      name="description"
+      content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
+    />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Dev Tào Lao</title>
+    <!-- Favicon icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/DEV tào lao.png"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/fontawesome/v5.15.4/css/fontawesome.min.css">
+    <link href="/assets/libs/flot/css/float-chart.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="/assets/dist/css/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/dist/css/index.css">
+    <link rel="stylesheet" href="/assets/dist/css/preview-image.css">
+    <link rel="stylesheet" href="/assets/iziToast/toastr.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin5"
+      data-sidebartype="full"
+      data-sidebar-position="absolute"
+      data-header-position="absolute"
+      data-boxed-layout="full"
+    >
+      <!-- ============================================================== -->
+      <!-- Topbar header - style you can find in pages.scss -->
+      <!-- ============================================================== -->
+      <header class="topbar" data-navbarbg="skin5">
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+          <div class="navbar-header" data-logobg="skin5">
+            <!-- ============================================================== -->
+            <!-- Logo -->
+            <!-- ============================================================== -->
+            <a class="navbar-brand" href="index.html">
+              <!-- Logo icon -->
+              <b class="logo-icon ps-2">
+                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                <!-- Dark Logo icon -->
+                <img
+                  src="/assets/images/DEV tào lao.png"
+                  alt="homepage"
+                  class="light-logo"
+                  width="60x40"
+                  style="border-radius: 50%;"
+                />
+              </b>
+              <!--End Logo icon -->
+              <!-- Logo text -->
+              <span class="logo-text ms-2">
+                <!-- dark Logo text -->
+                <img
+                  src="/assets/images/taolao.png"
+                  alt="homepage"
+                  class="light-logo"
+                  width="150x40"
+                />
+              </span>
+              <!-- Logo icon -->
+              <!-- <b class="logo-icon"> -->
+              <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+              <!-- Dark Logo icon -->
+              <!-- <img src="../assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+
+              <!-- </b> -->
+              <!--End Logo icon -->
+            </a>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Toggle which is visible on mobile only -->
+            <!-- ============================================================== -->
+            <a
+              class="nav-toggler waves-effect waves-light d-block d-md-none"
+              href="javascript:void(0)"
+              ><i class="ti-menu ti-close"></i
+            ></a>
+          </div>
+          <!-- ============================================================== -->
+          <!-- End Logo -->
+          <!-- ============================================================== -->
+          <div
+            class="navbar-collapse collapse"
+            id="navbarSupportedContent"
+            data-navbarbg="skin5"
+          >
+            <!-- ============================================================== -->
+            <!-- toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav float-start me-auto">
+            </ul>
+            <!-- ============================================================== -->
+            <!-- Right side toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav float-end">
+              <!-- ============================================================== -->
+              <!-- Comment -->
+              <!-- ============================================================== -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="far fa-envelope font-24"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+              <!-- ============================================================== -->
+              <!-- End Comment -->
+              <!-- ============================================================== -->
+              <!-- ============================================================== -->
+              <!-- Messages -->
+              <!-- ============================================================== -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle waves-effect waves-dark"
+                  href="#"
+                  id="2"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="font-24 far fa-bell"></i>
+                </a>
+                <ul
+                  class="
+                    dropdown-menu dropdown-menu-end
+                    mailbox
+                    animated
+                    bounceInDown
+                  "
+                  aria-labelledby="2"
+                >
+                  <ul class="list-style-none">
+                    <li>
+                      <div class="">
+                        <!-- Message -->
+                        <a href="javascript:void(0)" class="link border-top">
+                          <div class="d-flex no-block align-items-center p-10">
+                            <span
+                              class="
+                                btn btn-success btn-circle
+                                d-flex
+                                align-items-center
+                                justify-content-center
+                              "
+                              ><i class="mdi mdi-calendar text-white fs-4"></i
+                            ></span>
+                            <div class="ms-2">
+                              <h5 class="mb-0">Event today</h5>
+                              <span class="mail-desc"
+                                >Just a reminder that event</span
+                              >
+                            </div>
+                          </div>
+                        </a>
+                        <!-- Message -->
+                        <a href="javascript:void(0)" class="link border-top">
+                          <div class="d-flex no-block align-items-center p-10">
+                            <span
+                              class="
+                                btn btn-info btn-circle
+                                d-flex
+                                align-items-center
+                                justify-content-center
+                              "
+                              ><i class="mdi mdi-settings fs-4"></i
+                            ></span>
+                            <div class="ms-2">
+                              <h5 class="mb-0">Settings</h5>
+                              <span class="mail-desc"
+                                >You can customize this template</span
+                              >
+                            </div>
+                          </div>
+                        </a>
+                        <!-- Message -->
+                        <a href="javascript:void(0)" class="link border-top">
+                          <div class="d-flex no-block align-items-center p-10">
+                            <span
+                              class="
+                                btn btn-primary btn-circle
+                                d-flex
+                                align-items-center
+                                justify-content-center
+                              "
+                              ><i class="mdi mdi-account fs-4"></i
+                            ></span>
+                            <div class="ms-2">
+                              <h5 class="mb-0">Pavan kumar</h5>
+                              <span class="mail-desc"
+                                >Just see the my admin!</span
+                              >
+                            </div>
+                          </div>
+                        </a>
+                        <!-- Message -->
+                        <a href="javascript:void(0)" class="link border-top">
+                          <div class="d-flex no-block align-items-center p-10">
+                            <span
+                              class="
+                                btn btn-danger btn-circle
+                                d-flex
+                                align-items-center
+                                justify-content-center
+                              "
+                              ><i class="mdi mdi-link fs-4"></i
+                            ></span>
+                            <div class="ms-2">
+                              <h5 class="mb-0">Luanch Admin</h5>
+                              <span class="mail-desc"
+                                >Just see the my new admin!</span
+                              >
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </ul>
+              </li>
+              <!-- ============================================================== -->
+              <!-- End Messages -->
+              <!-- ============================================================== -->
+
+              <!-- ============================================================== -->
+              <!-- User profile and search -->
+              <!-- ============================================================== -->
+              <li class="nav-item dropdown">
+                <a
+                  class="
+                    nav-link
+                    dropdown-toggle
+                    text-muted
+                    waves-effect waves-dark
+                    pro-pic
+                  "
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="/assets/images/users/1.jpg"
+                    alt="user"
+                    class="rounded-circle"
+                    width="31"
+                  />
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-end user-dd animated"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <a class="dropdown-item" href="javascript:void(0)"
+                    ><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a
+                  >
+                  <a class="dropdown-item" href="javascript:void(0)"
+                    ><i class="mdi mdi-wallet me-1 ms-1"></i> My Balance</a
+                  >
+                  <a class="dropdown-item" href="javascript:void(0)"
+                    ><i class="mdi mdi-email me-1 ms-1"></i> Inbox</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="javascript:void(0)"
+                    ><i class="mdi mdi-settings me-1 ms-1"></i> Account
+                    Setting</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="javascript:void(0)"
+                    ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <div class="ps-4 p-10">
+                    <a
+                      href="javascript:void(0)"
+                      class="btn btn-sm btn-success btn-rounded text-white"
+                      >View Profile</a
+                    >
+                  </div>
+                </ul>
+              </li>
+              <!-- ============================================================== -->
+              <!-- User profile and search -->
+              <!-- ============================================================== -->
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- ============================================================== -->
+      <!-- End Topbar header -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <aside class="left-sidebar" data-sidebarbg="skin5">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+          <!-- Sidebar navigation-->
+          <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="pt-4">
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="index.html"
+                  aria-expanded="false"
+                  ><i class="fa fa-building"></i
+                  ><span class="hide-menu">Company</span></a
+                >
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="charts.html"
+                  aria-expanded="false"
+                  ><i class="fa fa-users"></i
+                  ><span class="hide-menu">People</span></a
+                >
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="widgets.html"
+                  aria-expanded="false"
+                  ><i class="fa fa-tag fa-rotate-90"></i
+                  ><span class="hide-menu">Expenses</span></a
+                >
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="widgets.html"
+                  aria-expanded="false"
+                  ><i class="fa fa-briefcase"></i
+                  ><span class="hide-menu">Project</span></a
+                >
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link has-arrow waves-effect waves-dark"
+                  href="javascript:void(0)"
+                  aria-expanded="false"
+                  ><i class="fa fa-cog"></i
+                  ><span class="hide-menu">ADMIN</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+      </aside>
+      <!-- ============================================================== -->
+      <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Page wrapper  -->
+      <!-- ============================================================== -->
+      <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+          
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <button class="btn btn-outline-dark btn-excel">
+                <i class="fa fa-upload"></i>
+                Export
+              </button>
+              <button class="btn btn-outline-dark btn-excel">
+                <i class="fa fa-download"></i>
+                Import
+                </button>
+              <button class="btn btn-warning btn-delete">
+                <i class="fa fa-trash-alt"></i>
+                Delete
+              </button>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-3 text-center">
+                  <button class="btn btn-outline-dark btn-soft">
+                    <i class="fa fa-filter"></i>
+                    Soft By
+                  </button>
+                </div>
+                <div class="col-lg-6">
+                  <input class="form-control me-2" type="search" placeholder=" Search here" aria-label="Search">                  
+                </div>
+                <div class="col-lg-3">
+                  <button class="btn btn-outline-purple btn-create" id="btnShowCreateModal">
+                    <i class="fa fa-plus"></i>
+                    Add new
+                  </button>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>
+          <div class="row">
+            <div class="content">
+              <table class="table table-hover" id="tbPersonal">
+                <thead>
+                  <tr>
+                    <th class="text-center">
+                      <input type="checkbox">
+                    </th>
+                    <th class="text-center">
+                      <img src="" alt="">
+                    </th>
+                    <th class="text-center">Full Name</th>
+                    <th class="text-center">Position</th>
+                    <th class="text-center">Date Of Birth</th>
+                    <th class="text-center">Exp</th>
+                    <th class="text-center">Skill</th>
+                    <th class="text-center">RpH,$</th>
+                    <th class="text-center">Action</th>                 
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </div>
+            <div class="foot">
+              <div class="col-10"></div>
+              <div class="col-1">
+                <div class="table-page">
+                  <nav aria-label="Page navigation example">
+                    <ul id="renderPage" class="pagination" style="display: flex">
+
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Create -->
+          <div id="modalCreatePersonal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Personal Information</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="modal-alert-danger hide"></div>
+                  <form id="frmPersonalCre" enctype="multipart/form-data">
+                    <fieldset class="row g-3">
+                      <div class="mb-3 col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-12 col-form-label">Full Name</label>
+                          <div class="col-sm-12">
+                            <input type="text" id="fullNameCre" name="fullNameCre" class="form-control" />
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-12 col-form-label">Position</label>
+                          <div class="col-sm-12">
+                            <input type="text" id="positionCre" name="positionCre" class="form-control" />
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-12 col-form-label">Date Of Birth</label>
+                          <div class="col-sm-12">
+                            <input type="text" id="dateCre" name="dateCre" class="form-control" />
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-12 col-form-label">Exp</label>
+                          <div class="col-sm-12">
+                            <input type="text" class="form-control" id="expCre" name="expCre" />
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-12 col-form-label">Skill</label>
+                          <div class="col-sm-12">
+                            <input type="text" class="form-control" id="skillCre" name="skillCre" />
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-sm-12 col-form-label">RpH,$</label>
+                          <div class="col-sm-12">
+                            <input type="text" id="rpHCre" name="rpHCre" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <section>
+                          <div class="wrapper">
+                            <div class="image-preview">
+                              <canvas id="canvasCre" style="display: none"></canvas>
+                            </div>
+                            <div class="content">
+                              <div class="icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                              </div>
+                              <div class="text">
+                                No file chosen, yet!
+                              </div>
+                              <div class="text">
+                                Max file size = 2MB
+                              </div>
+                            </div>
+                            <div class="clear-image-preview">
+                              <i class="fas fa-times"></i>
+                            </div>
+                            <div class="file-name">
+                              Change image
+                            </div>
+                          </div>
+                          <input type="file" id="imageFileCre" name="imageFile" accept="image/jpeg, image/png" hidden />
+                        </section>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" id="btnPersonalCre" class="btn btn-outline-success">
+                    Create
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Update -->
+        <div id="modalUpdatePersonal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+          <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Personal Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-alert-danger hide"></div>
+                <form id="frmPersonalUp" enctype="multipart/form-data">
+                  <fieldset class="row g-3">
+                    <div class="mb-3 col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Full Name</label>
+                        <div class="col-sm-12">
+                          <input type="text" id="fullNameUp" name="fullNameUp" class="form-control" />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Position</label>
+                        <div class="col-sm-12">
+                          <input type="text" id="positionUp" name="positionUp" class="form-control" />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Date Of Birth</label>
+                        <div class="col-sm-12">
+                          <input type="text" id="dateUp" name="dateUp" class="form-control" />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Exp</label>
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control" id="expUp" name="expUp" />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Skill</label>
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control" id="skillUp" name="skillUp" />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">RpH,$</label>
+                        <div class="col-sm-12">
+                          <input type="text" id="rpHUp" name="rpHUp" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <section>
+                        <div class="wrapper">
+                          <div class="image-preview">
+                            <canvas id="canvasUp" style="display: none"></canvas>
+                          </div>
+                          <div class="content">
+                            <div class="icon">
+                              <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="text">
+                              No file chosen, yet!
+                            </div>
+                            <div class="text">
+                              Max file size = 2MB
+                            </div>
+                          </div>
+                          <div class="clear-image-preview">
+                            <i class="fas fa-times"></i>
+                          </div>
+                          <div class="file-name">
+                            Change image
+                          </div>
+                        </div>
+                        <input type="file" id="imageFileUp" name="imageFile" accept="image/jpeg, image/png" hidden />
+                      </section>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="btnPersonalUp" class="btn btn-outline-success">
+                  Create
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="loader hide"></div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer text-center">
+          All Rights Reserved by DEV-admin. Designed and Developed by
+          <a href=#>DEV Tào Lao</a>.
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Page wrapper  -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="/assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="/assets/dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="/assets/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/assets/dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <!-- <script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
+    <!-- Charts js Files -->
+    <script src="/assets/libs/flot/excanvas.js"></script>
+    <script src="/assets/libs/flot/jquery.flot.js"></script>
+    <script src="/assets/libs/flot/jquery.flot.pie.js"></script>
+    <script src="/assets/libs/flot/jquery.flot.time.js"></script>
+    <script src="/assets/libs/flot/jquery.flot.stack.js"></script>
+    <script src="/assets/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="/assets/dist/js/pages/chart/chart-page-init.js"></script>
+    <script src="/assets/dist/js/AppBase.js"></script>
+    <script src="/assets/dist/js/index.js"></script>
+    <script src="/assets/iziToast/toastr.min.js"></script>
+  </body>
+</html>

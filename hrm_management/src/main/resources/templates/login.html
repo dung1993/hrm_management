@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/assets/dist/css/login.css">
+</head>
+<body>
+<div class="cotn_principal">
+    <div class="cont_centrar">
+
+        <div class="cont_login">
+            <div class="cont_info_log_sign_up">
+                <div class="col_md_login">
+                    <div class="cont_ba_opcitiy">
+
+                        <h2>LOGIN</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
+                    </div>
+                </div>
+                <div class="col_md_sign_up">
+                    <div class="cont_ba_opcitiy">
+                        <h2>SIGN UP</h2>
+
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                        <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="cont_back_info">
+                <div class="cont_img_back_grey">
+                    <img src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d"
+                         alt=""/>
+                </div>
+
+            </div>
+            <div class="cont_forms">
+                <div class="cont_img_back_">
+                    <img src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d"
+                         alt=""/>
+                </div>
+                <div class="cont_form_login">
+                    <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+                    <h2>LOGIN</h2>
+                    <input type="text" id="usernameLog" placeholder="Username"/>
+                    <input type="password" id="passwordLog" placeholder="Password"/>
+                    <button id="btnLogin" class="btn_login" onclick="cambiar_login()">LOGIN</button>
+                </div>
+
+                <div class="cont_form_sign_up">
+                    <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+                    <h2>SIGN UP</h2>
+                    <input type="text" id="emailRegister" name="emailRegister" placeholder="Email"/>
+                    <div class="form-item">
+                        <span class="form-item-icon"><i class="fa-solid fa-face-rolling-eyes"></i></span>
+                        <select id="roleSelectRegister" name="roleSelectRegister" class="form-select">
+                        </select>
+                    </div>
+                    <input type="password" id="passwordRegister" name="passwordRegister" placeholder="Password"/>
+                    <input type="password" placeholder="Confirm Password"/>
+                    <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <script src="/assets/jquery/v3.6.1/jquery-3.6.1.min.js"></script>
+    <script src="/assets/dist/js/login.js"></script>
+
+<script>
+    /* ------------- Click on login and Sign Up to  change and view the effect ------------------ */
+
+    function cambiar_login() {
+        document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";
+        document.querySelector('.cont_form_login').style.display = "block";
+        document.querySelector('.cont_form_sign_up').style.opacity = "0";
+
+        setTimeout(function () {
+            document.querySelector('.cont_form_login').style.opacity = "1";
+        }, 400);
+
+        setTimeout(function () {
+            document.querySelector('.cont_form_sign_up').style.display = "none";
+        }, 200);
+    }
+
+    function cambiar_sign_up(at) {
+        document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
+        document.querySelector('.cont_form_sign_up').style.display = "block";
+        document.querySelector('.cont_form_login').style.opacity = "0";
+
+        setTimeout(function () {
+            document.querySelector('.cont_form_sign_up').style.opacity = "1";
+        }, 100);
+
+        setTimeout(function () {
+            document.querySelector('.cont_form_login').style.display = "none";
+        }, 400);
+    }
+
+
+    function ocultar_login_sign_up() {
+        document.querySelector('.cont_forms').className = "cont_forms";
+        document.querySelector('.cont_form_sign_up').style.opacity = "0";
+        document.querySelector('.cont_form_login').style.opacity = "0";
+
+        setTimeout(function () {
+            document.querySelector('.cont_form_sign_up').style.display = "none";
+            document.querySelector('.cont_form_login').style.display = "none";
+        }, 500);
+    }
+
+    $('#btnLogin').on('click', () => {
+        let username = $('#usernameLog').val();
+        let password = $('#passwordLog').val();
+
+        let obj = {
+            username,
+            password
+        }
+
+        $.ajax({
+            headers: {
+                'accept': 'application/json',
+                'content-type': 'application/json'
+            },
+            type: 'POST',
+            url: 'http://localhost:8088/api/auth/login',
+            data: JSON.stringify(obj)
+        })
+            .done((data) => {
+                console.log(data);
+                location.href = '/personals';
+            })
+            .fail((jqXHR) => {
+                console.log(jqXHR)
+            })
+
+    })
+
+    // page.elements.usernameLog = $("#usernameLog");
+    // page.elements.passwordLog = $("#passwordLog");
+    // page.elements.btnLogin = $("#btnLogin");
+    //
+    // page.commands.login = () => {
+    //     let user = {
+    //         username: page.elements.usernameLog.val(),
+    //         password: page.elements.passwordLog.val()
+    //     }
+    //     $.ajax({
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //         type: "POST",
+    //         url: "http://localhost:8093/api/auth/login",
+    //         data: JSON.stringify(user)
+    //     }).done((resp) => {
+    //         AppBase.SweetAlert.showSuccessAlert("Đăng nhập thành công.","<b></b>",1000, "/");
+    //
+    //         // setTimeout(function () {
+    //         //     window.location.href = "/";
+    //         // }, 1000);
+    //
+    //     }).fail(function (jqXHR) {
+    //         if (jqXHR.responseJSON) {
+    //             if (jqXHR.responseJSON.message) {
+    //                 AppBase.SweetAlert.showErrorAlert(jqXHR.responseJSON.message);
+    //             } else {
+    //                 $.each(jqXHR.responseJSON, function (key, value) {
+    //                     AppBase.SweetAlert.showErrorAlert(value);
+    //                 });
+    //             }
+    //         } else {
+    //             AppBase.SweetAlert.showErrorAlert("Email hoặc mật khẩu không đúng. Vui lòng kiểm tra lại!");
+    //         }
+    //     });
+    // }
+    //
+    // page.commands.loadData = () => {
+    // }
+    //
+    // page.initializeEventControl = () => {
+    //     page.elements.btnLogin.on("click", () => {
+    //         page.commands.login();
+    //     })
+    // }
+    //
+    // $(() => {
+    //     page.commands.loadData();
+    //     page.initializeEventControl();
+    // });
+
+</script>
+</body>
+</html>
