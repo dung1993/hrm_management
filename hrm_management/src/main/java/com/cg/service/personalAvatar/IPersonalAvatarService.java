@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface IPersonalAvatarService extends IGeneralStringService<PersonalAvatar> {
 
-    Optional<PersonalAvatar> findByBook(Personal personal);
+    Optional<PersonalAvatar> findByPersonal(Personal personal);
 }

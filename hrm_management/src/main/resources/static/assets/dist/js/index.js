@@ -1,3 +1,5 @@
+
+
 const page = {
     urls: {
         findPersonalById: AppBase.API_PERSONAL,
@@ -113,7 +115,7 @@ page.dialogs.commands.doEveryThing = () => {
                 personalAvatar.fileFolder = item.fileFolder;
                 personalAvatar.fileName = item.fileName
 
-                let str = renderpersonal(personal, personalAvatar);
+                let str = renderPersonal(personal, personalAvatar);
                 $('#tbPersonal tbody').append(str);
 
                 let numberOrder = 0;
@@ -140,11 +142,11 @@ page.dialogs.commands.doEveryThing = () => {
 
             page.commands.addEventClick();
 
-            toastSuccess("Result");
+            toastr.success("Result");
 
         })
         .fail(() => {
-            toastError("Result Fail");
+            toastr.error("Result Fail");
         })
 }
 
@@ -163,12 +165,12 @@ page.dialogs.commands.doUpdate = () => {
     }
 
     let formData = new FormData();
-    formData.append("name", fullName);
-    formData.append("author", position);
-    formData.append("price", dateOfBirth);
-    formData.append("quantity", exp);
-    formData.append("price", skill);
-    formData.append("quantity", rpH);
+    formData.append("fullName", fullName);
+    formData.append("position", position);
+    formData.append("dateOfBirth", dateOfBirth);
+    formData.append("exp", exp);
+    formData.append("skill", skill);
+    formData.append("rpH", rpH);
     formData.append("avatarFile", avatarFile);
 
     $.ajax({
@@ -184,10 +186,10 @@ page.dialogs.commands.doUpdate = () => {
             personal = data;
             personalAvatar = data.personalAvatar;
 
-            let str = renderpersonal(personal, personalAvatar);
+            let str = renderPersonal(personal, personalAvatar);
             $('#tr_' + currentpersonalId).replaceWith(str);
 
-            toastSuccess("Update personal successfully");
+            toastr.success("Update personal successfully");
 
             page.dialogs.elements.modalUpdatePersonal.modal('hide');
 
@@ -197,9 +199,9 @@ page.dialogs.commands.doUpdate = () => {
         .fail((jqXHR) => {
             let statusCode = jqXHR.status;
             if (statusCode === 404) {
-                toastError('personal not found');
+                toastr.error('personal not found');
             } else {
-                toastError("Create personal fail");
+                toastr.error("Create personal fail");
             }
         })
 }
@@ -219,12 +221,12 @@ page.dialogs.commands.doCreate = () => {
     }
 
     let formData = new FormData();
-    formData.append("name", fullName);
-    formData.append("author", position);
-    formData.append("price", dateOfBirth);
-    formData.append("quantity", exp);
-    formData.append("price", skill);
-    formData.append("quantity", rpH);
+    formData.append("fullName", fullName);
+    formData.append("position", position);
+    formData.append("dateOfBirth", dateOfBirth);
+    formData.append("exp", exp);
+    formData.append("skill", skill);
+    formData.append("rpH", rpH);
     formData.append("avatarFile", avatarFile);
 
 
@@ -243,22 +245,22 @@ page.dialogs.commands.doCreate = () => {
 
             page.dialogs.elements.modalCreatePersonal.modal('hide');
 
-            toastSuccess("Create personal successfully");
+            toastr.success("Create personal successfully");
 
         })
         .fail((jqXHR) => {
             let statusCode = jqXHR.status;
             if (statusCode === 409) {
-                toastError('The name of personal is exists');
+                toastr.error('The name of personal is exists');
             }
             else if(statusCode === 406){
-                toastError('Image must be JPG or PNG');
+                toastr.error('Image must be JPG or PNG');
             }
             else if(statusCode === 413){
-                toastError('Image size to large');
+                toastr.error('Image size to large');
             }
             else {
-                toastError("Create personal fail");
+                toastr.error("Create personal fail");
             }
         })
 }
@@ -363,7 +365,7 @@ page.dialogs.elements.frmPersonalUp.validate({
             min: 1,
             max: 10000
         },
-        skilUp: {
+        skillUp: {
             required: true
         },
         avatarFile: {
@@ -480,7 +482,7 @@ page.commands.addEventEditClick = () => {
 
         })
             .catch(() => {
-                toastError("personal id not exist");
+                toastr.error("personal id not exist");
             });
     })
 }
@@ -490,68 +492,102 @@ page.commands.addEventDeleteClick = () => {
     $('.delete').off('click');
 
     $('.delete').on('click', function () {
-
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-
-                let personalId = $(this).data('id');
-
-                page.loadData.findPersonalById(personalId).then((data) => {
-                    $.ajax({
-                        headers: {
-                            'accept': 'application/json',
-                            'content-type': 'application/json'
-                        },
-                        type: 'POST',
-                        url: page.urls.doDelete + '/' + personalId,
-                        // data: JSON.stringify(obj)
-                    })
-                        .done((data) => {
-
-                            $('#tr_' + personalId).remove();
-
-                            currentPageNumber = $('#pageActive').data('page');
-
-                            page.dialogs.commands.doEveryThing();
-
-                            page.commands.addEventClick();
-
-                            Swal.fire({
-                                position: 'middle-end',
-                                icon: 'success',
-                                title: 'Deleted Successfully',
-                                showConfirmButton: false,
-                                timer: 2000
+        let personalId = $(this).data('id')
+        page.loadData.findPersonalById(personalId).then((data) => {
+                            $.ajax({
+                                headers: {
+                                    'accept': 'application/json',
+                                    'content-type': 'application/json'
+                                },
+                                type: 'POST',
+                                url: page.urls.doDelete + '/' + personalId,
+                                // data: JSON.stringify(obj)
                             })
-                        })
-                        .fail((error) => {
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'error',
-                                title: 'You dont have permition to do this',
-                                showConfirmButton: true
-                            })
-                        })
-                })
-            }
-        })
-            .catch(() => {
-                toastError("personal id not exist");
-            });
+                                .done((data) => {
 
+                                    $('#tr_' + personalId).remove();
+
+                                    currentPageNumber = $('#pageActive').data('page');
+
+                                    page.dialogs.commands.doEveryThing();
+
+                                    page.commands.addEventClick();
+
+                                    Swal.fire({
+                                        position: 'middle-end',
+                                        icon: 'success',
+                                        title: 'Deleted Successfully',
+                                        showConfirmButton: false,
+                                        timer: 2000
+                                    })
+                                })
+                                .fail((error) => {
+                                    Swal.fire({
+                                        position: 'center',
+                                        icon: 'error',
+                                        title: 'You dont have permition to do this',
+                                        showConfirmButton: true
+                                    })
+                                })
+                        })
 
     })
+
+    // $('.delete').on('click', function () {
+    //
+    //     AppBase.SweetAlert.showDeleteConfirmDialog().then((result) => {
+    //         if (result.isConfirmed) {
+    //
+    //             let personalId = $(this).data('id');
+    //
+    //             page.loadData.findPersonalById(personalId).then((data) => {
+    //                 $.ajax({
+    //                     headers: {
+    //                         'accept': 'application/json',
+    //                         'content-type': 'application/json'
+    //                     },
+    //                     type: 'POST',
+    //                     url: page.urls.doDelete + '/' + personalId,
+    //                     // data: JSON.stringify(obj)
+    //                 })
+    //                     .done((data) => {
+    //
+    //                         $('#tr_' + personalId).remove();
+    //
+    //                         currentPageNumber = $('#pageActive').data('page');
+    //
+    //                         page.dialogs.commands.doEveryThing();
+    //
+    //                         page.commands.addEventClick();
+    //
+    //                         Swal.fire({
+    //                             position: 'middle-end',
+    //                             icon: 'success',
+    //                             title: 'Deleted Successfully',
+    //                             showConfirmButton: false,
+    //                             timer: 2000
+    //                         })
+    //                     })
+    //                     .fail((error) => {
+    //                         Swal.fire({
+    //                             position: 'center',
+    //                             icon: 'error',
+    //                             title: 'You dont have permition to do this',
+    //                             showConfirmButton: true
+    //                         })
+    //                     })
+    //             })
+    //         }
+    //     })
+    //         .catch(() => {
+    //             toastr.error("personal id not exist");
+    //         });
+    //
+    //
+    // })
 }
 
-function renderpersonal(personal, personalAvatar) {
+function renderPersonal(personal, personalAvatar) {
     let image_thumbnail = `
                 ${AppBase.API_CLOUDINARY}/${AppBase.SCALE_IMAGE_W_80_H_80_Q_100}/${personalAvatar.fileFolder}/${personalAvatar.fileName}
             `;
@@ -567,11 +603,10 @@ function renderpersonal(personal, personalAvatar) {
                                     <td>${personal.rpH}</td>
                                     <td style="display: flex; justify-content: center; align-items: center; padding-top: 27px">
                                         <div class="edit" data-id="${personal.id}">
-                                            <i class="fa-regular fa-pen-to-square"  title="Edit"></i>
+                                            <i class="fa fa-edit"  title="Edit"></i>
                                         </div>
-                                        |
                                         <div class="delete" data-id="${personal.id}">
-                                            <i class="fa-regular fa-trash-can" title="Delete"></i>
+                                            <i class="fa fa-trash" title="Delete"></i>
                                         </div>
                                     </td>
                                 </tr>

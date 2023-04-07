@@ -26,7 +26,7 @@ public class PersonalAvatarService implements IPersonalAvatarService {
     }
 
     @Override
-    public Optional<PersonalAvatar> findByBook(Personal personal) {
+    public Optional<PersonalAvatar> findByPersonal(Personal personal) {
         return personalAvatarRepository.findByPersonal(personal);
     }
 

@@ -285,7 +285,7 @@
                     pro-pic
                   "
                   href="#"
-                  id="navbarDropdown"
+
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -442,8 +442,11 @@
                     Soft By
                   </button>
                 </div>
-                <div class="col-lg-6">
-                  <input class="form-control me-2" type="search" placeholder=" Search here" aria-label="Search">                  
+                <div class="col-lg-6" style="display: flex">
+                  <input class="form-control me-2" id="keyWord" type="search" placeholder=" Search here" aria-label="Search">
+                  <span class="input-group-text border-0" id="btnSearch">
+                              <i class="fas fa-search"></i>
+                            </span>
                 </div>
                 <div class="col-lg-3">
                   <button class="btn btn-outline-purple btn-create" id="btnShowCreateModal">
@@ -467,11 +470,29 @@
                     <th class="text-center">
                       <img src="" alt="">
                     </th>
-                    <th class="text-center">Full Name</th>
-                    <th class="text-center">Position</th>
+                    <th class="text-center">
+                      <div style="display: flex; padding-left: 5px; align-items: center;">Full Name
+                        <i class="fas fa-sort-up sort" data-column="name" data-ascdesc="asc"></i>
+                        <i class="fas fa-sort-down sort" data-column="name" data-ascdesc="desc"></i>
+                        <input type="hidden" id="sort_column" >
+                        <input type="hidden" id="sort_orderBy" >
+                      </div></th>
+                    <th class="text-center">
+                      <div style="display: flex; padding-left: 5px; align-items: center;">Position
+                        <i class="fas fa-sort-up sort" data-column="name" data-ascdesc="asc"></i>
+                        <i class="fas fa-sort-down sort" data-column="name" data-ascdesc="desc"></i>
+                        <input type="hidden" id="sort_column" >
+                        <input type="hidden" id="sort_orderBy" >
+                      </div></th>
                     <th class="text-center">Date Of Birth</th>
                     <th class="text-center">Exp</th>
-                    <th class="text-center">Skill</th>
+                    <th class="text-center">
+                      <div style="display: flex; padding-left: 5px; align-items: center;">Skill
+                        <i class="fas fa-sort-up sort" data-column="name" data-ascdesc="asc"></i>
+                        <i class="fas fa-sort-down sort" data-column="name" data-ascdesc="desc"></i>
+                        <input type="hidden" id="sort_column" >
+                        <input type="hidden" id="sort_orderBy" >
+                      </div></th>
                     <th class="text-center">RpH,$</th>
                     <th class="text-center">Action</th>                 
                   </tr>
@@ -549,7 +570,7 @@
                         <section>
                           <div class="wrapper">
                             <div class="image-preview">
-                              <canvas id="canvasCre" style="display: none"></canvas>
+                              <canvas id="canvas" style="display: none"></canvas>
                             </div>
                             <div class="content">
                               <div class="icon">
@@ -569,7 +590,7 @@
                               Change image
                             </div>
                           </div>
-                          <input type="file" id="imageFileCre" name="imageFile" accept="image/jpeg, image/png" hidden />
+                          <input type="file" id="imageFile" name="imageFile" accept="image/jpeg, image/png" hidden />
                         </section>
                       </div>
                     </fieldset>
@@ -669,7 +690,7 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" id="btnPersonalUp" class="btn btn-outline-success">
-                  Create
+                  Update
                 </button>
               </div>
             </div>
@@ -723,8 +744,10 @@
     <script src="/assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="/assets/dist/js/pages/chart/chart-page-init.js"></script>
+    <script src="/assets/jquery/v3.6.1/jquery.validate.min.js"></script>
+    <script src="/assets/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="/assets/iziToast/toastr.min.js"></script>
     <script src="/assets/dist/js/AppBase.js"></script>
     <script src="/assets/dist/js/index.js"></script>
-    <script src="/assets/iziToast/toastr.min.js"></script>
   </body>
 </html>

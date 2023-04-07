@@ -45,8 +45,8 @@ public class PersonalAPI {
     @GetMapping("{personalId}")
     public ResponseEntity<?> findPersonalById(@PathVariable Long personalId) {
 
-        Optional<PersonalAllInfoResDTO> bookResDTO = personalService.findPersonalResDTOById(personalId);
-        return new ResponseEntity<>(bookResDTO, HttpStatus.OK);
+        Optional<PersonalAllInfoResDTO> personalResDTO = personalService.findPersonalResDTOById(personalId);
+        return new ResponseEntity<>(personalResDTO, HttpStatus.OK);
 
     }
 
@@ -56,12 +56,12 @@ public class PersonalAPI {
     public ResponseEntity<Personal> delete(@PathVariable Long personalId) {
 
 
-        Optional<Personal> bookOptional = personalService.findById(personalId);
-        if (!bookOptional.isPresent()) {
-            throw new ResourceNotFoundException("Book not found");
+        Optional<Personal> personalOptional = personalService.findById(personalId);
+        if (!personalOptional.isPresent()) {
+            throw new ResourceNotFoundException("personal not found");
         }
 
-        personalService.delete(bookOptional.get());
+        personalService.delete(personalOptional.get());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -75,7 +75,7 @@ public class PersonalAPI {
 
         Optional<Personal> personalOptional = personalService.findById(personalId);
         if (!personalOptional.isPresent()) {
-            throw new ResourceNotFoundException("Book not found");
+            throw new ResourceNotFoundException("personal not found");
         }
 
         if(bindingResult.hasFieldErrors()){
@@ -152,7 +152,7 @@ public class PersonalAPI {
         Boolean existName = personalService.existsByFullNameEquals(personalDTO.getFullName());
         if (existName) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
-//            throw new EmailExistsException("The name of book is exists");
+//            throw new EmailExistsException("The name of person is exists");
         }
 
         if(avatarFile == null){

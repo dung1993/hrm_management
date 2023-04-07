@@ -70,12 +70,6 @@ class Personal {
     }
 }
 
-// class Position {
-//     constructor(id,positionName) {
-//         this.id = id;
-//         this.positionName = positionName
-//     }
-// }
 
 class PersonalAvatar{
     constructor(id, fileFolder, fileName, fileUrl) {

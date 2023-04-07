@@ -8,6 +8,7 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
@@ -21,7 +22,8 @@ public abstract class BaseEntity {
     private boolean deleted;
 
     @CreationTimestamp
-    @Column(name = "date", updatable = false)
+    @Column(name = "date", updatable = false,nullable = false)
+
     private Date date;
 
 }
